@@ -39,8 +39,7 @@ class DirectorsListAPIView(ListCreateAPIView):
 
 
 class MoviesDatailAPIView(ListCreateAPIView):
-    queryset = (Movie.objects.select_related('directors')
-                .prefetch_related('review').all()
+    queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
     def post(self, request):
@@ -54,8 +53,7 @@ class MoviesDatailAPIView(ListCreateAPIView):
         return Response(data=data)
 
 class MoviesListCreateAPIView(ListCreateAPIView):
-    queryset = (Movie.objects.select_related('directors')
-                .prefetch_related('review').all()
+    queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
     def post(self, request):

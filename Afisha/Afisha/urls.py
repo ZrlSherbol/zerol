@@ -1,9 +1,10 @@
-from movie_app import views
-from users import views
+
+from movie_app import urls, views
+from users import views, urls
 from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/movie', include(movie.urls))
+    path('api/v1/movie', include('movie_app.urls'))
 ]
